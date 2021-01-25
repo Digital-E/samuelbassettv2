@@ -5,6 +5,8 @@ import { CMS_NAME } from "../lib/constants";
 
 import Form from "../components/conversational-form"
 
+import Projects from "../components/projects"
+
 import styled from "styled-components";
 
 import { store } from "../store";
@@ -13,15 +15,16 @@ const Container = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
+  // justify-content: center;
+  align-items: flex-end;
 `;
 
 const FormContainer = styled.div`
   position: relative;
   width: 40%;
-  height: 40%;
-  left: -2%;
+  height: 100%;
+  z-index: 0;
 
   .conversational-form {
     background: transparent !important;
@@ -107,7 +110,7 @@ const FormContainer = styled.div`
 
 
 export default function Index({ preview }) {
-
+  let [reveal, setReveal] = useState(false);
 
 
   //Context
@@ -123,9 +126,10 @@ export default function Index({ preview }) {
           <title>{CMS_NAME}</title>
         </Head>
         <Container>
-          <FormContainer>
-            <Form />
-          </FormContainer>
+        <Projects reveal={reveal}/>
+        <FormContainer onClick={()=>setReveal(true)}>
+          <Form />
+        </FormContainer>
         </Container>
       </Layout>
     </>

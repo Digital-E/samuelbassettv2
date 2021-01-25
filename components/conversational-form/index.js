@@ -18,10 +18,19 @@ const Form = () => {
     let formRef = useRef();
     let cfInstance = useRef();
 
+    let date = new Date();
+
+    date = date.toLocaleTimeString("en-GB", { timeZone: 'Europe/Paris' });
+
+    date = date.split(":");
+
+    date = `${date[0]}:${date[1]}`
+
+
     let formFields = [
         {
             "tag": "fieldset",
-			"cf-questions": "Hello, Nice to meet you! 👋🏻&&It's currently 00:00 in Paris&&I’m probably deep down the rabbit hole as we speak.&&I guess you're here to see my work right?",
+			"cf-questions": `Hello, Nice to meet you! 👋🏻&&It's currently ${date} in Paris&&I’m probably deep down the rabbit hole as we speak&&I guess you're here to see my work right?`,
 			"children":[
 				{
                     "tag": "input",

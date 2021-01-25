@@ -26,13 +26,14 @@ html {
   scrollbar-width: none; /* Firefox */
 }
 
-/* @font-face {
-  font-family: "Monospace";
-  src: url("/fonts/monospace821.woff") format("woff"),
-    url("/fonts/monospace821.woff2") format("woff2");
+@font-face {
+  font-family: "Eurostile";
+  src: url("/fonts/Eurostile-Reg.otf") format("otf");
+  /* src: url("/fonts/monospace821.otf") format("woff"),
+    url("/fonts/monospace821.woff2") format("woff2"); */
   font-weight: normal;
   font-style: normal;
-} */
+}
 
 .hide-content {
   opacity: 0;
