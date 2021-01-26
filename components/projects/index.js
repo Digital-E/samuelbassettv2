@@ -9,10 +9,19 @@ import VideoContainer from "./video-container"
 const Container = styled(motion.div)`
     position: fixed;
     height: 100vh;
-    width: 100vw;
+    width: calc(100vw - 40%);
     z-index: 1;
-    pointer-events: none;
+    // pointer-events: none;
+    left: 40%;
+    overflow: scroll;
 `
+
+const InnerContainer = styled.div`
+    > a:nth-child(1) {
+        margin-top: 50px;
+    }
+`
+
 
 
 let videos = [
@@ -31,6 +40,18 @@ let shiftValue = {
 
 let delayValue = 0;
 
+let containerVariants = {
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.3
+        }
+    },
+    hide: {
+        opacity: 0,
+    }
+}
+
 
 const Index = ({reveal}) => {
      let containerRef = useRef();
@@ -38,7 +59,14 @@ const Index = ({reveal}) => {
 
 
     return (
-    <Container ref={containerRef}>
+    <Container 
+        ref={containerRef} 
+        className="projects-container"
+        initial="hide"
+        animate={reveal ? "show" : "hide"}
+        variants={containerVariants}
+    >
+        <InnerContainer>
         {videos.map((item, index) => {
             if(index !== 0) {
                 shiftValue = {
@@ -49,6 +77,7 @@ const Index = ({reveal}) => {
             }
             return <VideoContainer src={item} initShiftValue={shiftValue} initDelayValue={delayValue} reveal={reveal}/>    
         })}
+        </InnerContainer>
     </Container>)
 }
 

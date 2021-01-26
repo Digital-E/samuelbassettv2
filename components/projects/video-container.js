@@ -5,16 +5,19 @@ import styled from "styled-components"
 import Video from "../video"
 
 
-const VideoContainer = styled(motion.div)`
-    position: absolute;
-    width: 35%;
+const VideoContainer = styled(motion.a)`
+    position: relative;
+    width: calc(100% - 20px);
     overflow: hidden;
-    pointer-events: all;
-    cursor: grab;
     display: flex;
+    margin-bottom: 50px;
 
     > div:nth-child(1) > div:nth-child(1) {
         border-radius: 15px;
+    }
+
+    > div:nth-child(1)  {
+        cursor: pointer;
     }
 `
 
@@ -44,7 +47,7 @@ const Label = styled.div`
         font-family: "Eurostile";
         text-transform: uppercase;
         color: white;
-        font-size: 12px;
+        font-size: 14px;
         white-space: nowrap;
     }
 
@@ -95,7 +98,7 @@ const RoleLabelDev = styled.div`
         font-family: "Eurostile";
         text-transform: uppercase;
         color: white;
-        font-size: 12px;
+        font-size: 14px;
         display: inline-block;
     }
 
@@ -104,7 +107,7 @@ const RoleLabelDev = styled.div`
     }
 
     span:nth-child(2) {
-        margin-left: 3px;
+        margin-left: 8px;
     }
 
     span:nth-child(2) svg {
@@ -125,12 +128,12 @@ span {
     font-family: "Eurostile";
     text-transform: uppercase;
     color: white;
-    font-size: 12px;
+    font-size: 14px;
     display: inline-block;
 }
 
 span:nth-child(2) {
-    margin-left: 3px;
+    margin-left: 8px;
 }
 
 span:nth-child(2) svg {
@@ -147,24 +150,27 @@ let videos = [
     {url: "./videos/videoThree.mov"}
 ]
 
-const mediaMotion = {
-    rest: {
-      scale: 1,
-      transition: {
-        duration: 2,
-        type: "tween",
-        ease: "easeIn"
-      }
+
+  let mediaVariants = {
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 1,
+            type: "tween",
+            ease: "easeInOut"
+          }
     },
-    hover: {
-      scale: 1.01,
-      transition: {
-        duration: 1,
-        type: "tween",
-        ease: "easeOut"
-      }
+    hide: {
+        opacity: 0,
+        y: 20,
+        // transition: {
+        //     duration: 1,
+        //     type: "tween",
+        //     ease: "easeOut"
+        //   }
     }
-  };
+}
 
 
 
@@ -180,62 +186,62 @@ const Index = ({src, initShiftValue, initDelayValue, reveal}) => {
     let x = useMotionValue(0);
     let y = useMotionValue(0);
 
-    let windowInit = () => {
-        setWindowHeight(window.innerHeight - videoContainerRef.current.getBoundingClientRect().height);
-        setWindowWidth(window.innerWidth - videoContainerRef.current.getBoundingClientRect().width);
+    // let windowInit = () => {
+    //     setWindowHeight(window.innerHeight - videoContainerRef.current.getBoundingClientRect().height);
+    //     setWindowWidth(window.innerWidth - videoContainerRef.current.getBoundingClientRect().width);
 
-        let leftDistance = window.innerWidth * 0.4;
-        let topDistance = window.innerHeight;
+    //     let leftDistance = window.innerWidth * 0.4;
+    //     let topDistance = window.innerHeight;
 
 
-        x.set(leftDistance);
-        y.set(topDistance);
-    }
+    //     x.set(leftDistance);
+    //     y.set(topDistance);
+    // }
 
-    let revealProjects = () => {
-        setWindowHeight(window.innerHeight - videoContainerRef.current.getBoundingClientRect().height);
-        setWindowWidth(window.innerWidth - videoContainerRef.current.getBoundingClientRect().width);
+    // let revealProjects = () => {
+    //     setWindowHeight(window.innerHeight - videoContainerRef.current.getBoundingClientRect().height);
+    //     setWindowWidth(window.innerWidth - videoContainerRef.current.getBoundingClientRect().width);
 
-        let leftDistance = window.innerWidth * 0.4 + shiftValue.x;
-        let topDistance = window.innerHeight * 0.1 + shiftValue.y;
+    //     let leftDistance = window.innerWidth * 0.4 + shiftValue.x;
+    //     let topDistance = window.innerHeight * 0.1 + shiftValue.y;
 
-        animate(x, leftDistance, {
-            duration: 0,
-        });
+    //     animate(x, leftDistance, {
+    //         duration: 0,
+    //     });
     
-        animate(y, topDistance, {
-            duration: 1,
-            delay: delayValue
-        });
-    }
+    //     animate(y, topDistance, {
+    //         duration: 1,
+    //         delay: delayValue
+    //     });
+    // }
     
 
-    let windowResize = () => {
-        setWindowHeight(window.innerHeight - videoContainerRef.current.getBoundingClientRect().height);
-        setWindowWidth(window.innerWidth - videoContainerRef.current.getBoundingClientRect().width);
-    }
+    // let windowResize = () => {
+    //     setWindowHeight(window.innerHeight - videoContainerRef.current.getBoundingClientRect().height);
+    //     setWindowWidth(window.innerWidth - videoContainerRef.current.getBoundingClientRect().width);
+    // }
 
 
-    useEffect(()=>{
-        setShiftValue(initShiftValue);
-        setDelayValue(initDelayValue);
+    // useEffect(()=>{
+    //     setShiftValue(initShiftValue);
+    //     setDelayValue(initDelayValue);
 
-        windowInit();
-
-
-        window.addEventListener("resize", windowResize);
-
-        () => {
-            window.removeEventListener("resize", windowResize);
-        }
-    },[]);
+    //     windowInit();
 
 
-    useEffect(()=>{
-        if(reveal) {
-            revealProjects();
-        }
-    }, [reveal])
+    //     window.addEventListener("resize", windowResize);
+
+    //     () => {
+    //         window.removeEventListener("resize", windowResize);
+    //     }
+    // },[]);
+
+
+    // useEffect(()=>{
+    //     if(reveal) {
+    //         revealProjects();
+    //     }
+    // }, [reveal])
 
 
     const getRole = (src) => {
@@ -265,17 +271,29 @@ const Index = ({src, initShiftValue, initDelayValue, reveal}) => {
         }
     }
 
+    // const toTop = (e) => {
+    //     Array.from(document.querySelector(".projects-container").children).forEach(item => {
+    //         item.style.zIndex = 1
+    //     })
+
+    //     e.currentTarget.style.zIndex = 999;
+    // }
+
 
     return (
             <VideoContainer 
-            drag 
-            dragConstraints={{ left: 0, right: windowWidth, top: 0, bottom: windowHeight}}
-            dragElastic={0.5}
+            // drag 
+            // dragConstraints={{ left: 0, right: windowWidth, top: 0, bottom: windowHeight}}
+            // dragElastic={0.5}
             ref={videoContainerRef}
-            style={{x, y}}
-            initial="rest"
-            whileHover="hover"
-            variants={mediaMotion}
+            variants={mediaVariants}
+            href={src.link}
+            target="_blank"
+            // style={{x, y}}
+            // initial="rest"
+            // whileHover="hover"
+            // variants={mediaMotion}
+            // onMouseDown={(e)=>toTop(e)}
             >
                 <Left>
                 <Video src={src}/>

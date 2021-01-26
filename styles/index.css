@@ -5,7 +5,6 @@
 @tailwind utilities;
 
 html {
-  line-height: 1;
   background-color: #757575;
 }
 

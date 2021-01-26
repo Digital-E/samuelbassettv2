@@ -3,9 +3,13 @@ import Layout from "../components/layout";
 import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 
+import {motion} from "framer-motion"
+
 import Form from "../components/conversational-form"
 
 import Projects from "../components/projects"
+
+import Intro from "../components/intro.js"
 
 import styled from "styled-components";
 
@@ -14,26 +18,29 @@ import { store } from "../store";
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
-  display: flex;
-  overflow: hidden;
-  // justify-content: center;
-  align-items: flex-end;
 `;
 
-const FormContainer = styled.div`
-  position: relative;
+const FormContainer = styled(motion.div)`
+  position: absolute;
   width: 40%;
-  height: 100%;
+  height: 100vh;
   z-index: 0;
+
 
   .conversational-form {
     background: transparent !important;
     display: flex;
-    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .conversational-form a {
+    color: #cbcbcb;
   }
 
   .conversational-form-inner {
     width: fit-content !important;
+    position: relative !important;
+    min-height: 0 !important;
   }
 
   cf-chat-response thumb {
@@ -90,7 +97,7 @@ const FormContainer = styled.div`
   }
 
   conversational-form-inner {
-    width: fit-content !important;
+  
   }
 
   cf-chat {
@@ -109,13 +116,23 @@ const FormContainer = styled.div`
 
 
 
+
+
 export default function Index({ preview }) {
-  let [reveal, setReveal] = useState(false);
+  let [revealProjects, setRevealProjects] = useState(false);
+  let [triggerForm, setTriggerForm] = useState(false);
 
 
   //Context
   const context = useContext(store);
   const { state, dispatch } = context;
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setTriggerForm(true);
+    // },2000);
+  },0);
+  },[])
 
 
 
@@ -126,9 +143,10 @@ export default function Index({ preview }) {
           <title>{CMS_NAME}</title>
         </Head>
         <Container>
-        <Projects reveal={reveal}/>
-        <FormContainer onClick={()=>setReveal(true)}>
-          <Form />
+        {/* <Intro /> */}
+        <Projects reveal={revealProjects}/>
+        <FormContainer>
+          <Form trigger={triggerForm} showProjects={() => setRevealProjects(true)}/>
         </FormContainer>
         </Container>
       </Layout>

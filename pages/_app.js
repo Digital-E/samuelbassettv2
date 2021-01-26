@@ -9,23 +9,25 @@ import { motion, AnimatePresence } from "framer-motion"
 function MyApp({ Component, pageProps, router}) {
 
   useEffect(()=>{
-    setTimeout(() => {
-      document.querySelector(".hide-content").classList.add("show-content");
-    }, 500);
+    // setTimeout(() => {
+    //   document.querySelector(".hide-content").classList.add("show-content");
+    // }, 500);
   },[]);
 
 
 
   return (
     <StateProvider>
-      <div className="hide-content">
+      <div 
+      // className="hide-content"
+      >
       <AnimatePresence exitBeforeEnter 
       onExitComplete={() => { window.scrollTo(0,0) }}
       > 
       <motion.div key={router.route} initial="pageInitial" animate="pageAnimate" exit= "pageExit"
         variants={{
           pageInitial: {
-            opacity: 0
+            opacity: 1
           },
           pageAnimate: {
             opacity: 1,
