@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import "../styles/index.css";
 import "../public/styles/flickity.css";
 
+
+
 import { StateProvider } from "../store";
 
 import { motion, AnimatePresence } from "framer-motion"

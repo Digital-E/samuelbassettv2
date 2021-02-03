@@ -7,6 +7,8 @@ import {motion} from "framer-motion"
 
 import Form from "../components/conversational-form"
 
+import BackgroundSwitch from "../components/background-switch"
+
 import Projects from "../components/projects"
 
 import Intro from "../components/intro.js"
@@ -64,7 +66,7 @@ const FormContainer = styled(motion.div)`
   }
 
   .conversational-form a {
-    color: #d1d1d1;
+    color: #d1d1d1 !important;
   }
 
   .conversational-form-inner {
@@ -154,14 +156,21 @@ const FormContainer = styled(motion.div)`
   }
 `;
 
+const Background = styled.img`
+  position: fixed;
+  height: 100%;
+  width: 100%;
+`
+ 
+
 
 
 let projects = [
   {url: "./videos/videoOne.mp4", name: "Nike Bra Radar", description: "A tool for influencers", link: null, developer: true, designer: false, collaboration: "made with The Digital Fairy"},
-  {url: "./videos/videoTwo.mp4", name: "CLM", description: "An international super-agency", link: "https://google.com", developer: true, designer: false, collaboration: "made with Yes Studio"},
-  {url: "./videos/videoThree.mp4", name: "John Gray", description: "A french film director", link: "https://google.com", developer: true, designer: true, collaboration: null},
-  {url: "./videos/videoFour.mp4", name: "Caroline Dussuel", description: "specialised in creative services", link: "https://google.com", developer: true, designer: true, collaboration: null},
-  {url: "./videos/videoFive.mp4", name: "Scotomalab", description: "a textile-first creative studio", link: "https://google.com", developer: true, designer: true, collaboration: null}
+  {url: "./videos/videoTwo.mp4", name: "CLM", description: "An international super-agency", link: "https://clm-agency.com", developer: true, designer: false, collaboration: "made with Yes Studio"},
+  {url: "./videos/videoThree.mp4", name: "John Gray", description: "A french film director", link: "https://realdejague.com", developer: true, designer: true, collaboration: null},
+  {url: "./videos/videoFour.mp4", name: "Caroline Dussuel", description: "specialised in creative services", link: "https://carolinedussuel.com", developer: true, designer: true, collaboration: null},
+  {url: "./videos/videoFive.mp4", name: "Scotomalab", description: "a textile-first creative studio", link: "https://scotomalab.com", developer: true, designer: true, collaboration: null}
 ]
 
 
@@ -195,6 +204,8 @@ export default function Index({ preview }) {
           <title>{CMS_NAME}</title>
         </Head>
         <Container>
+        <BackgroundSwitch />
+        {/* <Background src="./images/bg-2.jpg"/> */}
         <Intro />
         <Projects reveal={revealProjects} projects={projects}/>
         <FormContainer>

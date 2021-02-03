@@ -35,7 +35,7 @@ const Form = ({trigger, showProjects, projects}) => {
     const createProjectsMobile = () => {
         let linksArray = ["<br class='mobile-link'/>"];
         projects.forEach(item => {
-          let link = `<a href='${item.link}' target='_blank' class='mobile-link'>${item.name}</a> ${item.description}`;
+          let link = `<a href='${item.link}' target='_blank' class='mobile-link'>${item.name}</a> <span class='mobile-link'>${item.description}</span>`;
     
           linksArray.push("<br class='mobile-link'/>");
           linksArray.push(link);
@@ -110,8 +110,13 @@ const Form = ({trigger, showProjects, projects}) => {
             },
             {
                 "tag": "input",
-                "cf-questions": "Here's a link to my super secret <a href='https://www.google.com' target='_blank'>Google Drive <img id='google-drive-icon' src='./icons/google-drive.svg'/></a> with a selection of past projects and work in progress...&&Hope you enjoy, and see you soon!&&And don't forget...&&<a href='https://www.youtube.com/watch?v=cJMwBwFj5nQ' target='blank'>Be as water my friend!</a>🙅🏼‍♂️🥋",
+                "cf-questions": "Here's a link to my super secret <a href='https://docs.google.com/document/d/1Mv6ZfsuwP4ehfVPmlE92cCvHjWO0s1DlictyJi_TOiI/edit?usp=sharing' target='_blank'>Google Drive <img id='google-drive-icon' src='./icons/google-drive.svg'/></a> with a selection of past projects and work in progress...&&Hope you enjoy, and see you soon!&&And don't forget...&&<a href='https://www.youtube.com/watch?v=cJMwBwFj5nQ' target='blank'>Be as water my friend!</a>🙅🏼‍♂️🥋",
                 "cf-conditional-cfc-intro-1": "yes",
+            },
+            {
+                "tag": "input",
+                "cf-questions": "Oh, that's a shame!&&If ever you change you’re mind you can always press the arrow above and reverse time 😉",
+                "cf-conditional-cfc-intro-1": "no",
             },
           ];
 
