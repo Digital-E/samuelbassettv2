@@ -19,7 +19,13 @@ const Container = styled.div`
         top: 70%;
         fill: white;
         position: absolute;
-      }
+	  }
+	  
+	@media(max-width: 576px) {
+		#logo {
+			width: 95%;
+		}
+	}
 
     #path1 {
         opacity: 0;

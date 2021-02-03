@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import Layout from "../components/layout";
 import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
@@ -15,6 +15,7 @@ import styled from "styled-components";
 
 import { store } from "../store";
 
+
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
@@ -26,15 +27,44 @@ const FormContainer = styled(motion.div)`
   height: 100vh;
   z-index: 0;
 
+  .mobile-link {
+    display: none;
+  }
+
+  @media(max-width: 992px) {
+    width: 100%;
+
+    .mobile-link {
+      display: inline-block;
+    }
+  }
+
 
   .conversational-form {
     background: transparent !important;
     display: flex;
     align-items: flex-end;
+    // -webkit-mask-image: linear-gradient( transparent 0%, white 6%, white 90%, transparent 95%);
+  }
+
+  cf-chat-response text {
+    padding-right: 2px;
+  }
+
+  cf-input-control-elements {
+    padding: 0 !important;
+  }
+
+  cf-input {
+    margin-bottom: 0 !important;
+  }
+
+  cf-chat {
+    margin-bottom: 0 !important;
   }
 
   .conversational-form a {
-    color: #cbcbcb;
+    color: #d1d1d1;
   }
 
   .conversational-form-inner {
@@ -64,7 +94,8 @@ const FormContainer = styled(motion.div)`
   }
 
   cf-input {
-    background: transparent;
+    // background: transparent;
+    background: #757575;
   }
 
   .inputWrapper {
@@ -112,9 +143,26 @@ const FormContainer = styled(motion.div)`
   cf-chat-response {
     max-width: none !important;
   }
+
+  #google-drive-icon {
+    top: -2px;
+    position: relative;
+    width: 14px;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 
+
+let projects = [
+  {url: "./videos/videoOne.mp4", name: "Nike Bra Radar", description: "A tool for influencers", link: null, developer: true, designer: false, collaboration: "made with The Digital Fairy"},
+  {url: "./videos/videoTwo.mp4", name: "CLM", description: "An international super-agency", link: "https://google.com", developer: true, designer: false, collaboration: "made with Yes Studio"},
+  {url: "./videos/videoThree.mp4", name: "John Gray", description: "A french film director", link: "https://google.com", developer: true, designer: true, collaboration: null},
+  {url: "./videos/videoFour.mp4", name: "Caroline Dussuel", description: "specialised in creative services", link: "https://google.com", developer: true, designer: true, collaboration: null},
+  {url: "./videos/videoFive.mp4", name: "Scotomalab", description: "a textile-first creative studio", link: "https://google.com", developer: true, designer: true, collaboration: null}
+]
 
 
 
@@ -122,16 +170,20 @@ export default function Index({ preview }) {
   let [revealProjects, setRevealProjects] = useState(false);
   let [triggerForm, setTriggerForm] = useState(false);
 
+  let messageAlert = useRef();
+
+
 
   //Context
   const context = useContext(store);
   const { state, dispatch } = context;
 
   useEffect(()=>{
+    document.body.click()
     setTimeout(()=>{
       setTriggerForm(true);
-    // },2000);
-  },0);
+    },2000);
+  // },0);
   },[])
 
 
@@ -143,10 +195,10 @@ export default function Index({ preview }) {
           <title>{CMS_NAME}</title>
         </Head>
         <Container>
-        {/* <Intro /> */}
-        <Projects reveal={revealProjects}/>
+        <Intro />
+        <Projects reveal={revealProjects} projects={projects}/>
         <FormContainer>
-          <Form trigger={triggerForm} showProjects={() => setRevealProjects(true)}/>
+          <Form trigger={triggerForm} showProjects={() => setRevealProjects(true)} projects={projects}/>
         </FormContainer>
         </Container>
       </Layout>

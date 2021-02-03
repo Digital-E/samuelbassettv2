@@ -14,6 +14,10 @@ const Container = styled(motion.div)`
     // pointer-events: none;
     left: 40%;
     overflow: scroll;
+
+    @media(max-width: 992px) {
+        display: none;
+    }
 `
 
 const InnerContainer = styled.div`
@@ -23,14 +27,6 @@ const InnerContainer = styled.div`
 `
 
 
-
-let videos = [
-    {url: "./videos/videoOne.mp4", name: "Nike Bra Radar", description: "A tool for influencers", link: null, developer: true, designer: false, collaboration: "made with The Digital Fairy"},
-    {url: "./videos/videoTwo.mp4", name: "CLM", description: "An international super-agency", link: "https://google.com", developer: true, designer: false, collaboration: "made with Yes Studio"},
-    {url: "./videos/videoThree.mp4", name: "John Gray", description: "A french film director", link: "https://google.com", developer: true, designer: true, collaboration: null},
-    {url: "./videos/videoFour.mp4", name: "Caroline Dussuel", description: "specialised in creative services", link: "https://google.com", developer: true, designer: true, collaboration: null},
-    {url: "./videos/videoFive.mp4", name: "Scotomalab", description: "a textile-first creative studio", link: "https://google.com", developer: true, designer: true, collaboration: null}
-]
 
 
 let shiftValue = {
@@ -53,7 +49,7 @@ let containerVariants = {
 }
 
 
-const Index = ({reveal}) => {
+const Index = ({reveal, projects}) => {
      let containerRef = useRef();
      
 
@@ -67,7 +63,7 @@ const Index = ({reveal}) => {
         variants={containerVariants}
     >
         <InnerContainer>
-        {videos.map((item, index) => {
+        {projects.map((item, index) => {
             if(index !== 0) {
                 shiftValue = {
                     x: shiftValue.x += 15,
