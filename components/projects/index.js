@@ -23,7 +23,7 @@ const Container = styled(motion.div)`
     }
 
     @media(max-width: 992px) {
-        display: none;
+        display: none !important;
     }
 `
 
