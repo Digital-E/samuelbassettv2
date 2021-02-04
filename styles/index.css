@@ -8,6 +8,12 @@ html {
   background-color: #757575;
 }
 
+body {
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -14,7 +14,6 @@
     "flickity": "^2.2.1",
     "framer-motion": "^2.7.7",
     "gsap": "^3.5.1",
-    "howler": "^2.2.1",
     "next": "latest",
     "next-images": "^1.7.0",
     "prismic-dom": "^2.2.4",

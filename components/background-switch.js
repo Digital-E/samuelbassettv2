@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import styled from "styled-components";
 
+import {motion} from "framer-motion";
+
 import Toggle from 'react-toggle';
 
 const Container = styled.div`
@@ -153,44 +155,51 @@ const Container = styled.div`
       }
 `;
 
-const Selector = styled.div`
-    width: 25px;
-    height: 25px;
-    border-radius: 999px;
-    overflow :hidden;
-    // border: 1px solid white;
 
-    :nth-child(n+2) {
-        margin-left: 5px;
-    }
-
-    img {
-        height: 100%;
-        width: 100%;
-    }
+const Background = styled(motion.img)`
+      position: fixed;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
 `
 
 
 
+let animationVars = {
+  "show": {
+    opacity: 1
+  },
+  "hide": {
+    opacity: 0
+  }
+}
 
-const Switch = () => {
+
+const Switch = ({toggleSwitch}) => {
     let [isToggled, setIsToggled] = useState(false);
 
     const toggle = () => {
-        setIsToggled(!isToggled)
+        setIsToggled(!isToggled);
+        toggleSwitch();
     }
 
     return (
+    <>
+    <Background
+    animate={isToggled ? "show" : "hide"}
+    initial={"hide"}
+    variants={animationVars}
+    src="./images/bg-2.jpg" />
     <Container>
-        {/* <Selector></Selector>
-        <Selector><img src="./images/bg.png"/></Selector>
-        <Selector><img src="./images/bg-2.jpg"/></Selector> */}
     <Toggle
         defaultChecked={isToggled}
         icons={false}
         checked={isToggled}
         onChange={() => toggle()} />       
     </Container>
+    </>
     )
 }
 

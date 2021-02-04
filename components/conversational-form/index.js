@@ -33,11 +33,11 @@ const Form = ({trigger, showProjects, projects}) => {
 
 
     const createProjectsMobile = () => {
-        let linksArray = ["<br class='mobile-link'/>"];
+        let linksArray = [];
         projects.forEach(item => {
-          let link = `<a href='${item.link}' target='_blank' class='mobile-link'>${item.name}</a> <span class='mobile-link'>${item.description}</span>`;
+          let link = `<a href='${item.link}' target='_blank' class='mobile-link'>${item.name}</a><br class='mobile-link'/><span class='mobile-link'>${item.description}</span>`;
     
-          linksArray.push("<br class='mobile-link'/>");
+          linksArray.push("<br class='mobile-link'/><br class='mobile-link'/>");
           linksArray.push(link);
         })
     

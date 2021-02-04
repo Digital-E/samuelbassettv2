@@ -19,14 +19,14 @@ import { store } from "../store";
 
 
 const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 `;
 
 const FormContainer = styled(motion.div)`
   position: absolute;
   width: 40%;
-  height: 100vh;
+  height: 100%;
   z-index: 0;
 
   .mobile-link {
@@ -53,8 +53,16 @@ const FormContainer = styled(motion.div)`
     padding-right: 2px;
   }
 
-  cf-input-control-elements {
-    padding: 0 !important;
+  // cf-input-control-elements {
+  //   padding: 0 !important;
+  // }
+
+  .hide-nav-buttons {
+    padding: 0;
+  }
+
+  .hide-nav-buttons.animate-in {
+    padding: 10px 0;
   }
 
   cf-input {
@@ -63,6 +71,11 @@ const FormContainer = styled(motion.div)`
 
   cf-chat {
     margin-bottom: 0 !important;
+  }
+
+
+  cf-input-control-elements .cf-button {
+    margin-bottom: 0;
   }
 
   .conversational-form a {
@@ -96,8 +109,7 @@ const FormContainer = styled(motion.div)`
   }
 
   cf-input {
-    // background: transparent;
-    background: #757575;
+    background: transparent;
   }
 
   .inputWrapper {
@@ -179,8 +191,6 @@ export default function Index({ preview }) {
   let [revealProjects, setRevealProjects] = useState(false);
   let [triggerForm, setTriggerForm] = useState(false);
 
-  let messageAlert = useRef();
-
 
 
   //Context
@@ -188,10 +198,9 @@ export default function Index({ preview }) {
   const { state, dispatch } = context;
 
   useEffect(()=>{
-    document.body.click()
     setTimeout(()=>{
       setTriggerForm(true);
-    },2000);
+    },2700);
   // },0);
   },[])
 
@@ -204,8 +213,7 @@ export default function Index({ preview }) {
           <title>{CMS_NAME}</title>
         </Head>
         <Container>
-        <BackgroundSwitch />
-        {/* <Background src="./images/bg-2.jpg"/> */}
+        <BackgroundSwitch toggleSwitch={()=>{}}/>
         <Intro />
         <Projects reveal={revealProjects} projects={projects}/>
         <FormContainer>

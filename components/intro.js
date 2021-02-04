@@ -7,7 +7,7 @@ import {gsap} from "gsap";
 
 const Container = styled.div`
     position: fixed;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -30,13 +30,11 @@ const Container = styled.div`
     #path1 {
         opacity: 0;
         position: relative;
-        transform: translateY(10%);
     }
       
     #path2 {
         opacity: 0;
         position: relative;
-        transform: translateY(10%);
     }      
 `;
 

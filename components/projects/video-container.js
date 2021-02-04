@@ -61,7 +61,7 @@ const Link = styled.div`
     height: auto;
     min-width: 8px;
     margin-left: 5px;
-    margin-top: -8px;
+    margin-top: -9px;
 
     img {
         height: 100%;
@@ -72,7 +72,7 @@ const Lock = styled.div`
     height: auto;
     min-width: 6px;
     margin-left: 5px;
-    margin-top: -8px;
+    margin-top: -9px;
 
     img {
         height: 100%;
