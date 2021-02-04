@@ -26,7 +26,7 @@ const Container = styled.div`
 const FormContainer = styled(motion.div)`
   position: absolute;
   width: 40%;
-  height: 100%;
+  height: 100vh;
   z-index: 0;
 
   .mobile-link {
@@ -53,9 +53,9 @@ const FormContainer = styled(motion.div)`
     padding-right: 2px;
   }
 
-  // cf-input-control-elements {
-  //   padding: 0 !important;
-  // }
+  cf-radio {
+    display: none !important;
+  }
 
   .hide-nav-buttons {
     padding: 0;
@@ -168,11 +168,6 @@ const FormContainer = styled(motion.div)`
   }
 `;
 
-const Background = styled.img`
-  position: fixed;
-  height: 100%;
-  width: 100%;
-`
  
 
 
@@ -191,6 +186,9 @@ export default function Index({ preview }) {
   let [revealProjects, setRevealProjects] = useState(false);
   let [triggerForm, setTriggerForm] = useState(false);
 
+  let formContainerRef = useRef();
+  let messageAlertRef = useRef();
+
 
 
   //Context
@@ -201,9 +199,15 @@ export default function Index({ preview }) {
     setTimeout(()=>{
       setTriggerForm(true);
     },2700);
-  // },0);
+
+    setTimeout(()=>{
+      formContainerRef.current.style.height = "100%";
+    }, 5000);
   },[])
 
+  const playMessageAlert = () => {
+    messageAlertRef.current.play();
+  }
 
 
   return (
@@ -215,9 +219,10 @@ export default function Index({ preview }) {
         <Container>
         <BackgroundSwitch toggleSwitch={()=>{}}/>
         <Intro />
+        <audio preload ref={messageAlertRef} src="/sounds/your-turn-491.mp3" type="audio/mp3"/>
         <Projects reveal={revealProjects} projects={projects}/>
-        <FormContainer>
-          <Form trigger={triggerForm} showProjects={() => setRevealProjects(true)} projects={projects}/>
+        <FormContainer ref={formContainerRef}>
+          <Form playMessageAlert={() => playMessageAlert()} trigger={triggerForm} showProjects={() => setRevealProjects(true)} projects={projects}/>
         </FormContainer>
         </Container>
       </Layout>

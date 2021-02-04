@@ -17,7 +17,7 @@ if (typeof window !== "undefined") {
 
 
 
-const Form = ({trigger, showProjects, projects}) => {
+const Form = ({trigger, showProjects, projects, playMessageAlert}) => {
     let formRef = useRef();
     let cfInstance = useRef();
 
@@ -85,46 +85,61 @@ const Form = ({trigger, showProjects, projects}) => {
                 ]
             },
             {
-                "tag": "select",
-                "cf-questions": `Alright, well here it is… Abracadaba!🔮${projectsMobile}&&While you're here I'll tell you a bit more about myself.&&I’m a developer and designer focused on future-oriented web experiences for the New Age, leveraging next generation technologies for scalable, long-lasting, human-centered web solutions.&&If you like what you see and think we should work together, please <a href='mailto:hello@samuelbassett.xyz'>get in touch</a>, I’d love to hear about your project!&&As you're still here... I think you deserve a special gift&&Want to see it?`,
-                "cf-conditional-cfc-intro": "yes",
-                "children":[
-                    {
-                        "tag": "option",
-                        "name": "cfc-intro-1",
-                        "cf-label": "yes",
-                        "value": "yes"
-                    },
-                    {
-                        "tag": "option",
-                        "name": "cfc-intro-1",
-                        "cf-label": "no",
-                        "value": "no"
-                    }
-                ]
-            },
-            {
                 "tag": "input",
                 "cf-questions": "Oh, that's a shame!&&If ever you change you’re mind you can always press the arrow above and reverse time 😉",
                 "cf-conditional-cfc-intro": "no",
             },
             {
-                "tag": "input",
-                "cf-questions": "Here's a link to my super secret <a href='https://docs.google.com/document/d/1Mv6ZfsuwP4ehfVPmlE92cCvHjWO0s1DlictyJi_TOiI/edit?usp=sharing' target='_blank'>Google Drive <img id='google-drive-icon' src='./icons/google-drive.svg'/></a> with a selection of past projects and work in progress...&&Hope you enjoy, and see you soon!&&And don't forget...&&<a href='https://www.youtube.com/watch?v=cJMwBwFj5nQ' target='blank'>Be as water my friend!</a>🙅🏼‍♂️🥋",
+                "tag": "fieldset",
+                "cf-questions": `Alright, well here it is… Abracadaba!🔮${projectsMobile}&&This is a selection of some of my most recent projects`,
+                "cf-conditional-cfc-intro": "yes",
+                "children":[
+                    {
+                        "tag": "input",
+                        "type": "radio",
+                        "name": "cfc-intro-1",
+                        "cf-label": "I'm excited, show me more!",
+                        "value": "yes"
+                    }
+                ]
+            },
+            {
+                "tag": "fieldset",
+                "cf-questions": "While you're here I'll tell you a bit more about myself.&&I’m a developer and designer focused on future-oriented web experiences for the New Age, leveraging next generation technologies for scalable, long-lasting, human-centered web solutions.&&If you like what you see and think we should work together, please <a href='mailto:hello@samuelbassett.xyz'>get in touch</a>, I’d love to hear about your project!&&As you're still here... I think you deserve a special gift 🎁&&Want to see it?",
                 "cf-conditional-cfc-intro-1": "yes",
+                "children":[
+                    {
+                        "tag": "input",
+                        "type": "radio",
+                        "name": "cfc-intro-2",
+                        "cf-label": "For sure!",
+                        "value": "yes"
+                    },
+                    {
+                        "tag": "input",
+                        "type": "radio",
+                        "name": "cfc-intro-2",
+                        "cf-label": "No thanks, I'm good",
+                        "value": "no"
+                    },
+                ]
+            },
+            {
+                "tag": "input",
+                "cf-questions": "Here's a link to my super secret <a href='https://docs.google.com/document/d/1Mv6ZfsuwP4ehfVPmlE92cCvHjWO0s1DlictyJi_TOiI/edit?usp=sharing' target='_blank'>Google Drive <img id='google-drive-icon' src='./icons/google-drive.svg'/></a> with a selection of past projects and work in progress...&&Hope you enjoy, it's been nice talking to you, see you soon!&&And don't forget...&&<a href='https://www.youtube.com/watch?v=cJMwBwFj5nQ' target='blank'>Be as water my friend!</a>🙅🏼‍♂️🥋",
+                "cf-conditional-cfc-intro-2": "yes",
             },
             {
                 "tag": "input",
                 "cf-questions": "Oh, that's a shame!&&If ever you change you’re mind you can always press the arrow above and reverse time 😉",
-                "cf-conditional-cfc-intro-1": "no",
+                "cf-conditional-cfc-intro-2": "no",
             },
           ];
 
         var dispatcher = new EventDispatcher();
 
         dispatcher.addEventListener(ControlElementEvents.SUBMIT_VALUE, function(e) {
-            let messageAlert = new Audio("/sounds/your-turn-491.mp3");
-            messageAlert.play();
+            playMessageAlert();
             if(e.detail.referenceTag.name === "cfc-intro" && e.detail.referenceTag.value === "yes") {
                     showProjects();
             } 
