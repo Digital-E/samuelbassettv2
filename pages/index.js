@@ -33,6 +33,22 @@ const FormContainer = styled(motion.div)`
     display: none;
   }
 
+  .mobile-lock-icon {
+    height: 10px;
+    width: auto;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    opacity: 0.5;
+    margin: 0 0 2px 3px;
+  }
+
+  @media(min-width: 992px) {
+    .mobile-lock-icon {
+      display: none !important;
+    }
+  }
+
   @media(max-width: 992px) {
     width: 100%;
 
@@ -83,7 +99,7 @@ const FormContainer = styled(motion.div)`
   }
 
   .conversational-form-inner {
-    width: fit-content !important;
+    // width: fit-content !important;
     position: relative !important;
     min-height: 0 !important;
   }
@@ -141,16 +157,14 @@ const FormContainer = styled(motion.div)`
     border: 1px solid white;
   }
 
-  conversational-form-inner {
-  
-  }
 
   cf-chat {
-    width: fit-content !important;
+    // width: fit-content !important;
   }
 
   cf-chat scrollable {
-    width: fit-content !important;
+    // width: fit-content !important;
+    width: 100% !important;
     padding-right: 0 !important;
   }
 

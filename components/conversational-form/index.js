@@ -35,7 +35,7 @@ const Form = ({trigger, showProjects, projects, playMessageAlert}) => {
     const createProjectsMobile = () => {
         let linksArray = [];
         projects.forEach(item => {
-          let link = `<a href='${item.link}' target='_blank' class='mobile-link'>${item.name}</a><br class='mobile-link'/><span class='mobile-link'>${item.description}</span>`;
+          let link = `<a ${item.link !== null ? `href=${item.link}` : ''} target='_blank' class='mobile-link'>${item.name}</a>${item.link === null ? `<img class="mobile-lock-icon" src="./icons/lock.svg" />` : ""}<br class='mobile-link'/><span class='mobile-link'>${item.description}</span>`;
     
           linksArray.push("<br class='mobile-link'/><br class='mobile-link'/>");
           linksArray.push(link);
@@ -81,6 +81,13 @@ const Form = ({trigger, showProjects, projects, playMessageAlert}) => {
                         "name": "cfc-intro",
                         "cf-label": "no",
                         "value": "no"
+                    },
+                    {
+                        "tag": "input",
+                        "type": "radio",
+                        "name": "cfc-intro",
+                        "cf-label": "Get in touch",
+                        "value": "Get in touch"
                     }
                 ]
             },
@@ -88,6 +95,11 @@ const Form = ({trigger, showProjects, projects, playMessageAlert}) => {
                 "tag": "input",
                 "cf-questions": "Oh, that's a shame!&&If ever you change you’re mind you can always press the arrow above and reverse time 😉",
                 "cf-conditional-cfc-intro": "no",
+            },
+            {
+                "tag": "input",
+                "cf-questions": "If you think we should work together, please <a href='mailto:hello@samuelbassett.xyz'>get in touch</a>, I'd love to hear about your project!&&If you'd like to carry on press the arrow above to reverse time 😉",
+                "cf-conditional-cfc-intro": "Get in touch",
             },
             {
                 "tag": "fieldset",

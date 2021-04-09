@@ -32,6 +32,7 @@ const Container = styled.div`
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         -webkit-tap-highlight-color: transparent;
       }
+
       
       .react-toggle-screenreader-only {
         border: 0;
@@ -67,7 +68,8 @@ const Container = styled.div`
       }
       
       .react-toggle--checked .react-toggle-track {
-        background-color: #19ab27;
+        // background-color: #19ab27;
+        background-color: #48ba48;
       }
       
       .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
@@ -139,7 +141,8 @@ const Container = styled.div`
       
       .react-toggle--checked .react-toggle-thumb {
         left: 27px;
-        border-color: #19ab27;
+        // border-color: #19ab27;
+        border-color: #48ba48;
       }
       
       .react-toggle--focus .react-toggle-thumb {
