@@ -148,14 +148,6 @@ span:nth-child(2) svg {
 `
 
 
-
-let videos = [
-    {url: "./videos/videoOne.mov"},
-    {url: "./videos/videoTwo.mov"},
-    {url: "./videos/videoThree.mov"}
-]
-
-
   let mediaVariants = {
     show: {
         opacity: 1,
@@ -169,84 +161,14 @@ let videos = [
     hide: {
         opacity: 0,
         y: 20,
-        // transition: {
-        //     duration: 1,
-        //     type: "tween",
-        //     ease: "easeOut"
-        //   }
     }
 }
 
 
 
-const Index = ({src, initShiftValue, initDelayValue, reveal}) => {
-    let [windowHeight, setWindowHeight] = useState(0);
-    let [windowWidth, setWindowWidth] = useState(0);
-    let [shiftValue, setShiftValue] = useState(0);
-    let [delayValue, setDelayValue] = useState(0);
+const Index = ({src}) => {
 
-    let videoContainerRef = useRef();
-
-
-    let x = useMotionValue(0);
-    let y = useMotionValue(0);
-
-    // let windowInit = () => {
-    //     setWindowHeight(window.innerHeight - videoContainerRef.current.getBoundingClientRect().height);
-    //     setWindowWidth(window.innerWidth - videoContainerRef.current.getBoundingClientRect().width);
-
-    //     let leftDistance = window.innerWidth * 0.4;
-    //     let topDistance = window.innerHeight;
-
-
-    //     x.set(leftDistance);
-    //     y.set(topDistance);
-    // }
-
-    // let revealProjects = () => {
-    //     setWindowHeight(window.innerHeight - videoContainerRef.current.getBoundingClientRect().height);
-    //     setWindowWidth(window.innerWidth - videoContainerRef.current.getBoundingClientRect().width);
-
-    //     let leftDistance = window.innerWidth * 0.4 + shiftValue.x;
-    //     let topDistance = window.innerHeight * 0.1 + shiftValue.y;
-
-    //     animate(x, leftDistance, {
-    //         duration: 0,
-    //     });
-    
-    //     animate(y, topDistance, {
-    //         duration: 1,
-    //         delay: delayValue
-    //     });
-    // }
-    
-
-    // let windowResize = () => {
-    //     setWindowHeight(window.innerHeight - videoContainerRef.current.getBoundingClientRect().height);
-    //     setWindowWidth(window.innerWidth - videoContainerRef.current.getBoundingClientRect().width);
-    // }
-
-
-    // useEffect(()=>{
-    //     setShiftValue(initShiftValue);
-    //     setDelayValue(initDelayValue);
-
-    //     windowInit();
-
-
-    //     window.addEventListener("resize", windowResize);
-
-    //     () => {
-    //         window.removeEventListener("resize", windowResize);
-    //     }
-    // },[]);
-
-
-    // useEffect(()=>{
-    //     if(reveal) {
-    //         revealProjects();
-    //     }
-    // }, [reveal])
+    let videoContainerRef = useRef()
 
 
     const getRole = (src) => {
@@ -276,32 +198,16 @@ const Index = ({src, initShiftValue, initDelayValue, reveal}) => {
         }
     }
 
-    // const toTop = (e) => {
-    //     Array.from(document.querySelector(".projects-container").children).forEach(item => {
-    //         item.style.zIndex = 1
-    //     })
-
-    //     e.currentTarget.style.zIndex = 999;
-    // }
-
 
     return (
             <VideoContainer 
-            // drag 
-            // dragConstraints={{ left: 0, right: windowWidth, top: 0, bottom: windowHeight}}
-            // dragElastic={0.5}
             ref={videoContainerRef}
             variants={mediaVariants}
             href={src.link}
             target="_blank"
-            // style={{x, y}}
-            // initial="rest"
-            // whileHover="hover"
-            // variants={mediaMotion}
-            // onMouseDown={(e)=>toTop(e)}
             >
                 <Left className={src.link === null && "locked-project"}>
-                <Video src={src}/>
+                <Video src={src} height="1590" width="2880"/>
                 <Information>
                     <Label>
                         <span>{src.name}</span>&nbsp;<span>{src.description}</span>
