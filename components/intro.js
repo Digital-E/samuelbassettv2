@@ -42,7 +42,7 @@ const Container = styled.div`
 
 
 
-const Intro = ({triggerForm}) => {
+const Intro = ({introLoaded}) => {
     let containerRef = useRef();
 
     useEffect(()=>{
@@ -65,7 +65,12 @@ const Intro = ({triggerForm}) => {
 			  y: -10,
               ease: "Power3.easeInOut",
 			  stagger: 0.35,
-			  delay: -0.5
+			  delay: -0.5,
+			  onComplete: () => {
+				setTimeout(()=>{
+					introLoaded();
+				},250)
+			  },
             })
           )
 
@@ -87,9 +92,9 @@ const Intro = ({triggerForm}) => {
               opacity: 0,
               duration: 0.5,
               delay: 0.5,
-			  ease: "Power3.easeInOut",
+			  ease: "Power3.easeInOut"
             })
-          );
+          )
     },[]);
 
   return (

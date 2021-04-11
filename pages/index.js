@@ -199,6 +199,7 @@ let projects = [
 export default function Index({ preview }) {
   let [revealProjects, setRevealProjects] = useState(false);
   let [triggerForm, setTriggerForm] = useState(false);
+  let [introLoaded, setIntroLoaded] = useState(false);
 
   let formContainerRef = useRef();
   let messageAlertRef = useRef();
@@ -209,15 +210,20 @@ export default function Index({ preview }) {
   const context = useContext(store);
   const { state, dispatch } = context;
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setTriggerForm(true);
-    },2700);
+  // useEffect(()=>{
+  //   setTimeout(()=>{
+  //     setTriggerForm(true);
+  //   },2700);
 
-    setTimeout(()=>{
-      formContainerRef.current.style.height = "100%";
-    }, 5000);
-  },[])
+  //   setTimeout(()=>{
+  //     formContainerRef.current.style.height = "100%";
+  //   }, 5000);
+  // },[])
+
+  useEffect(()=>{
+    if(introLoaded !== true) return;
+    setTriggerForm(true);
+  },[introLoaded]);
 
   const playMessageAlert = () => {
     messageAlertRef.current.play();
@@ -232,7 +238,7 @@ export default function Index({ preview }) {
         </Head>
         <Container>
         <BackgroundSwitch toggleSwitch={()=>{}}/>
-        <Intro />
+        <Intro introLoaded={() => setIntroLoaded(true)}/>
         <audio preload="true" ref={messageAlertRef} src="/sounds/your-turn-491.mp3" type="audio/mp3"/>
         <Projects reveal={revealProjects} projects={projects}/>
         <FormContainer ref={formContainerRef}>
