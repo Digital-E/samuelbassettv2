@@ -210,19 +210,13 @@ export default function Index({ preview }) {
   const context = useContext(store);
   const { state, dispatch } = context;
 
-  // useEffect(()=>{
-  //   setTimeout(()=>{
-  //     setTriggerForm(true);
-  //   },2700);
-
-  //   setTimeout(()=>{
-  //     formContainerRef.current.style.height = "100%";
-  //   }, 5000);
-  // },[])
 
   useEffect(()=>{
     if(introLoaded !== true) return;
     setTriggerForm(true);
+    setTimeout(()=>{
+      formContainerRef.current.style.height = "100%";
+    }, 2000);
   },[introLoaded]);
 
   const playMessageAlert = () => {
