@@ -19,6 +19,10 @@ const VideoContainer = styled(motion.a)`
     > div:nth-child(1)  {
         cursor: pointer;
     }
+
+    .locked-project {
+        cursor: not-allowed !important;
+    }
 `
 
 const Left = styled.div`
@@ -42,6 +46,7 @@ const Information = styled.div`
 
 const Label = styled.div`
     display: flex;
+    line-height: 1.6;
 
     span {
         font-family: "Eurostile";
@@ -61,7 +66,7 @@ const Link = styled.div`
     height: auto;
     min-width: 8px;
     margin-left: 5px;
-    margin-top: -9px;
+    margin-top: -8.5px;
 
     img {
         height: 100%;
@@ -295,7 +300,7 @@ const Index = ({src, initShiftValue, initDelayValue, reveal}) => {
             // variants={mediaMotion}
             // onMouseDown={(e)=>toTop(e)}
             >
-                <Left>
+                <Left className={src.link === null && "locked-project"}>
                 <Video src={src}/>
                 <Information>
                     <Label>

@@ -37,6 +37,15 @@ export default function Meta() {
         content={`Samuel Bassett 2050`}
       />
       {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWPDPEGR8T"></script>
+      <script dangerouslySetInnerHTML={{__html:
+      `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+      
+              gtag('config', 'G-BWPDPEGR8T');
+      `}}/>    
     </Head>
   );
 }

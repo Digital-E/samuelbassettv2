@@ -187,7 +187,7 @@ const FormContainer = styled(motion.div)`
 
 
 let projects = [
-  {url: "./videos/videoOne.mp4", name: "Nike Bra Radar", description: "A tool for influencers", link: null, developer: true, designer: false, collaboration: "made with The Digital Fairy"},
+  {url: "./videos/videoOne.mp4", name: "Nike Bra Radar", description: "A bespoke experience for influencers around the world", link: null, developer: true, designer: false, collaboration: "made with The Digital Fairy"},
   {url: "./videos/videoTwo.mp4", name: "CLM", description: "An international super-agency", link: "https://clm-agency.com", developer: true, designer: false, collaboration: "made with Yes Studio"},
   {url: "./videos/videoThree.mp4", name: "John Gray", description: "A french film director", link: "https://realdejague.com", developer: true, designer: true, collaboration: null},
   {url: "./videos/videoFour.mp4", name: "Caroline Dussuel", description: "specialised in creative services", link: "https://carolinedussuel.com", developer: true, designer: true, collaboration: null},
@@ -233,7 +233,7 @@ export default function Index({ preview }) {
         <Container>
         <BackgroundSwitch toggleSwitch={()=>{}}/>
         <Intro />
-        <audio preload ref={messageAlertRef} src="/sounds/your-turn-491.mp3" type="audio/mp3"/>
+        <audio preload="true" ref={messageAlertRef} src="/sounds/your-turn-491.mp3" type="audio/mp3"/>
         <Projects reveal={revealProjects} projects={projects}/>
         <FormContainer ref={formContainerRef}>
           <Form playMessageAlert={() => playMessageAlert()} trigger={triggerForm} showProjects={() => setRevealProjects(true)} projects={projects}/>
