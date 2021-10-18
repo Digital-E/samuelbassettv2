@@ -190,7 +190,7 @@ let projects = [
   {url: "./videos/videoOne.mp4", name: "Nike Bra Radar", description: "A bespoke experience for influencers around the world", link: null, developer: true, designer: false, collaboration: "made with The Digital Fairy"},
   {url: "./videos/lesgarconnes.mp4", name: "Les Garçonnes", description: "A virtual fitting room for the Parisian fashion house", link: "https://cabine.les-garconnes.com/", developer: true, designer: true, collaboration: null},
   {url: "./videos/videoTwo.mp4", name: "CLM", description: "An international super-agency", link: "https://clm-agency.com", developer: true, designer: false, collaboration: "made with Yes Studio"},
-  {url: "./videos/videoThree.mp4", name: "John Gray", description: "A french film director", link: "https://realdejague.com", developer: true, designer: true, collaboration: null},
+  {url: "./videos/videoThree.mp4", name: "John Gray", description: "A french film director", link: "https://johngrayreal.com", developer: true, designer: true, collaboration: null},
   {url: "./videos/videoFour.mp4", name: "Caroline Dussuel", description: "specialised in creative services", link: "https://carolinedussuel.com", developer: true, designer: true, collaboration: null},
   {url: "./videos/videoFive.mp4", name: "Scotomalab", description: "a textile-first creative studio", link: "https://scotomalab.com", developer: true, designer: true, collaboration: null}
 ]
