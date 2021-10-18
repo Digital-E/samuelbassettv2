@@ -6,7 +6,7 @@ let EventDispatcher;
 let ControlElementEvents;
 
 
-import robotImageURL from "../../public/icons/me.png"
+import robotImageURL from "../../public/icons/me.png";
 
 
 if (typeof window !== "undefined") {
