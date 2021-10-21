@@ -12,6 +12,7 @@ body {
   position: absolute;
   height: 100%;
   overflow: hidden;
+  margin: 0 !important;
 }
 
 * {
@@ -33,9 +34,8 @@ body {
 
 @font-face {
   font-family: "Eurostile";
-  src: url("/fonts/Eurostile-Reg.otf") format("otf");
-  /* src: url("/fonts/monospace821.otf") format("woff"),
-    url("/fonts/monospace821.woff2") format("woff2"); */
+  src: url("/fonts/Eurostile-Reg.woff") format("woff"),
+    url("/fonts/Eurostile-Reg.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }

@@ -11,6 +11,7 @@ const VideoContainer = styled(motion.a)`
     overflow: hidden;
     display: flex;
     margin-bottom: 40px;
+    text-decoration: none;
 
     > div:nth-child(1) > div:nth-child(1) {
         border-radius: 15px;
@@ -66,7 +67,7 @@ const Link = styled.div`
     height: auto;
     min-width: 8px;
     margin-left: 5px;
-    margin-top: -8.5px;
+    margin-top: -12px;
 
     img {
         height: 100%;
@@ -77,7 +78,7 @@ const Lock = styled.div`
     height: auto;
     min-width: 6px;
     margin-left: 5px;
-    margin-top: -9px;
+    margin-top: -13px;
 
     img {
         height: 100%;
@@ -112,7 +113,9 @@ const RoleLabelDev = styled.div`
     }
 
     span:nth-child(2) {
-        margin-left: 8px;
+        // margin-left: 8px;
+        left: 2px;
+        position: relative;
     }
 
     span:nth-child(2) svg {
@@ -138,7 +141,9 @@ span {
 }
 
 span:nth-child(2) {
-    margin-left: 8px;
+    // margin-left: 8px;
+    left: 2px;
+    position: relative;
 }
 
 span:nth-child(2) svg {

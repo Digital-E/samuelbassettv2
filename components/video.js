@@ -14,8 +14,9 @@ const Container = styled.div`
 `;
 
 const StyledVideo = styled.video`
-  height: auto;
-  width: auto;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
   opacity: 0;
   transition: opacity 500ms ease 0s;
 `;

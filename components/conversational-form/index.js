@@ -36,7 +36,7 @@ const Form = ({trigger, showProjects, projects, playMessageAlert}) => {
     const createProjectsMobile = () => {
         let linksArray = [];
         projects.forEach(item => {
-          let link = `<a ${item.link !== null ? `href=${item.link}` : ''} target='_blank' class='mobile-link'>${item.name}</a>${item.link === null ? `<img class="mobile-lock-icon" src="./icons/lock.svg" />` : ""}<br class='mobile-link'/><span class='mobile-link'>${item.description}</span>`;
+          let link = `<a ${item.link !== null ? `href=${item.link}` : ''} target='_blank' class='mobile-link'>${item.name}</a>${item.link === null ? `<img class="mobile-lock-icon" src="./icons/lock.svg" />` : `<img class="mobile-link-icon" src="./icons/share.svg" />`}<br class='mobile-link'/><span class='mobile-link'>${item.description}</span>`;
     
           linksArray.push("<br class='mobile-link'/><br class='mobile-link'/>");
           linksArray.push(link);

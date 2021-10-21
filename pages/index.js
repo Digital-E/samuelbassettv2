@@ -31,6 +31,7 @@ const FormContainer = styled(motion.div)`
 
   .mobile-link {
     display: none;
+    text-decoration: none;
   }
 
   .mobile-lock-icon {
@@ -40,11 +41,25 @@ const FormContainer = styled(motion.div)`
     padding: 0;
     margin: 0;
     opacity: 0.5;
-    margin: 0 0 2px 3px;
+    margin: 0 0 1px 3px;
+  }
+
+  .mobile-link-icon {
+    height: 10px;
+    width: auto;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    opacity: 0.5;
+    margin: 0 0 1px 3px;
   }
 
   @media(min-width: 992px) {
     .mobile-lock-icon {
+      display: none !important;
+    }
+
+    .mobile-link-icon {
       display: none !important;
     }
   }
