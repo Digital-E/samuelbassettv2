@@ -201,7 +201,7 @@ const FormContainer = styled(motion.div)`
 
 let projects = [
   {url: "./videos/rupturesstudio.mp4", name: "Ruptures Studio", description: "A Paris based video and visual services studio.", link: "https://www.ruptures.studio/", developer: true, designer: true, collaboration: null},
-  {url: "./videos/digitalfairy.mp4", name: "The Digital Fairy", description: "London based creative agency.", link: "https://www.thedigitalfairy.co.uk/", developer: true, designer: false, collaboration: "design by Katie Ling"},
+  {url: "./videos/digitalfairy.mp4", name: "The Digital Fairy", description: "A London based creative agency.", link: "https://www.thedigitalfairy.co.uk/", developer: true, designer: false, collaboration: "design by Katie Ling"},
   {url: "./videos/beepybella.mp4", name: "Beepy Bella", description: "A New York based jewelry brand", link: "https://www.beepybella.world/", developer: true, designer: false, collaboration: "made with The Digital Fairy"},
   {url: "./videos/artaucentregeneve.mp4", name: "Art au Centre Genève", description: "A city-wide art exhibition in Geneva, Switzerland", link: "https://www.artaucentregeneve.ch/", developer: true, designer: false, collaboration: "made with Neo Neo"},
   {url: "./videos/videoOne.mp4", name: "Nike Bra Radar", description: "A bespoke experience for influencers around the world", link: null, developer: true, designer: false, collaboration: "made with The Digital Fairy"},
