@@ -200,12 +200,14 @@ const FormContainer = styled(motion.div)`
  
 
 let projects = [
+  {url: "./videos/rupturesstudio.mp4", name: "Ruptures Studio", description: "A Paris based video and visual services studio.", link: "https://www.ruptures.studio/", developer: true, designer: true, collaboration: null},
+  {url: "./videos/digitalfairy.mp4", name: "The Digital Fairy", description: "London based creative agency.", link: "https://www.thedigitalfairy.co.uk/", developer: true, designer: false, collaboration: "design by Katie Ling"},
   {url: "./videos/beepybella.mp4", name: "Beepy Bella", description: "A New York based jewelry brand", link: "https://www.beepybella.world/", developer: true, designer: false, collaboration: "made with The Digital Fairy"},
   {url: "./videos/artaucentregeneve.mp4", name: "Art au Centre Genève", description: "A city-wide art exhibition in Geneva, Switzerland", link: "https://www.artaucentregeneve.ch/", developer: true, designer: false, collaboration: "made with Neo Neo"},
   {url: "./videos/videoOne.mp4", name: "Nike Bra Radar", description: "A bespoke experience for influencers around the world", link: null, developer: true, designer: false, collaboration: "made with The Digital Fairy"},
   {url: "./videos/lesgarconnes.mp4", name: "Les Garçonnes", description: "A virtual fitting room for the Parisian fashion house", link: "https://cabine.les-garconnes.com/", developer: true, designer: true, collaboration: null},
   {url: "./videos/videoTwo.mp4", name: "CLM", description: "An international super-agency", link: "https://clm-agency.com", developer: true, designer: false, collaboration: "made with Yes Studio"},
-  {url: "./videos/videoThree.mp4", name: "John Gray", description: "A french film director", link: "https://digital-e.github.io/realdejague4/", developer: true, designer: true, collaboration: null},
+  {url: "./videos/videoThree.mp4", name: "John Gray", description: "A french film director", link: "https://digital-e.github.io/realdejague4/ ", developer: true, designer: true, collaboration: null},
   {url: "./videos/videoFour.mp4", name: "Caroline Dussuel", description: "specialised in creative services", link: "https://carolinedussuel.com", developer: true, designer: true, collaboration: null},
   {url: "./videos/videoFive.mp4", name: "Scotomalab", description: "a textile-first creative studio", link: "https://scotomalab.com", developer: true, designer: true, collaboration: null}
 ]
