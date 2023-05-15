@@ -33,8 +33,8 @@ export default function Meta() {
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta
-        name="Samuel Bassett 2050"
-        content={`Samuel Bassett 2050`}
+        name="description"
+        content={`I’m a developer and designer focused on future-oriented web experiences for the New Age, leveraging next generation technologies for scalable, long-lasting, human-centered web solutions.`}
       />
       {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWPDPEGR8T"></script>
