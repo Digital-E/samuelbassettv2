@@ -198,15 +198,15 @@ const FormContainer = styled(motion.div)`
 `;
 
  
-
 let projects = [
+  {url: "./videos/nike.mp4", name: "Nike Impact Game", description: "a digital experience that invites youth to engage and imagine a new path to the future.", link: "https://nike.gallery/yourmove/", developer: true, designer: false, collaboration: "made with OK DEPLOY and Accept & Proceed"},
   {url: "./videos/rupturesstudio.mp4", name: "Ruptures Studio", description: "a Paris based video and visual services studio", link: "https://www.ruptures.studio", developer: true, designer: true, collaboration: null},
   {url: "./videos/digitalfairy.mp4", name: "The Digital Fairy", description: "a London based creative agency", link: "https://www.thedigitalfairy.co.uk/", developer: true, designer: false, collaboration: "design by Katie Ling"},
   {url: "./videos/beepybella.mp4", name: "Beepy Bella", description: "a New York based jewelry brand", link: "https://www.beepybella.world/", developer: true, designer: false, collaboration: "made with The Digital Fairy"},
   {url: "./videos/artaucentregeneve.mp4", name: "Art au Centre Genève", description: "a city-wide art exhibition in Geneva, Switzerland", link: "https://www.artaucentregeneve.ch/", developer: true, designer: false, collaboration: "made with Neo Neo"},
   {url: "./videos/videoOne.mp4", name: "Nike Bra Radar", description: "a bespoke experience for influencers around the world", link: null, developer: true, designer: false, collaboration: "made with The Digital Fairy"},
   {url: "./videos/lesgarconnes.mp4", name: "Les Garçonnes", description: "a virtual fitting room for the Parisian fashion house", link: "https://cabine.les-garconnes.com/", developer: true, designer: true, collaboration: null},
-  {url: "./videos/videoTwo.mp4", name: "CLM", description: "an international super-agency", link: "https://clm-agency.com", developer: true, designer: false, collaboration: "made with Yes Studio"},
+  {url: "./videos/videoTwo.mp4", name: "CLM", description: "an international super-agency", link: "https://www.clm-agency.com/", developer: true, designer: false, collaboration: "made with Yes Studio"},
   {url: "./videos/videoThree.mp4", name: "John Gray", description: "a french film director", link: "https://digital-e.github.io/realdejague4/ ", developer: true, designer: true, collaboration: null},
   {url: "./videos/videoFour.mp4", name: "Caroline Dussuel", description: "specialised in creative services", link: "https://carolinedussuel.com", developer: true, designer: true, collaboration: null},
   {url: "./videos/videoFive.mp4", name: "Scotomalab", description: "a textile-first creative studio", link: "https://scotomalab.com", developer: true, designer: true, collaboration: null}

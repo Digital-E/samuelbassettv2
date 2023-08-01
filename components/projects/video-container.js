@@ -54,7 +54,7 @@ const Label = styled.div`
         text-transform: uppercase;
         color: white;
         font-size: 14px;
-        white-space: nowrap;
+        // white-space: nowrap;
     }
 
     span:nth-child(2) {
