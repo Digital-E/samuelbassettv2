@@ -210,7 +210,6 @@ let projects = [
   {url: "./videos/videoThree.mp4", name: "John Gray", description: "a french film director", link: "https://digital-e.github.io/realdejague4/ ", developer: true, designer: true, collaboration: null},
   // {url: "./videos/videoFour.mp4", name: "Caroline Dussuel", description: "specialised in creative services", link: "https://carolinedussuel.com", developer: true, designer: true, collaboration: null},
   // {url: "./videos/videoFive.mp4", name: "Scotomalab", description: "a textile-first creative studio", link: "https://scotomalab.com", developer: true, designer: true, collaboration: null}
-  
 ]
 
 
